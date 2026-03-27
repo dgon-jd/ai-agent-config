@@ -1,0 +1,6 @@
+[submodule ".claude/_agents"]
+	path = .claude/_agents
+	url = git@github.com:wshobson/agents.git
+[submodule ".claude/PRPs-agentic-eng"]
+	path = .claude/PRPs-agentic-eng
+	url = git@github.com:Wirasm/PRPs-agentic-eng.git
