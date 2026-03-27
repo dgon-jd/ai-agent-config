@@ -1,0 +1,74 @@
+{
+  "claude-plugins-official": {
+    "source": {
+      "source": "github",
+      "repo": "anthropics/claude-plugins-official"
+    },
+    "installLocation": "/home/dgon/.claude/plugins/marketplaces/claude-plugins-official",
+    "lastUpdated": "2026-03-27T01:14:44.258Z"
+  },
+  "superpowers-marketplace": {
+    "source": {
+      "source": "github",
+      "repo": "obra/superpowers-marketplace"
+    },
+    "installLocation": "/home/dgon/.claude/plugins/marketplaces/superpowers-marketplace",
+    "lastUpdated": "2026-01-10T00:41:11.352Z"
+  },
+  "taches-cc-resources": {
+    "source": {
+      "source": "github",
+      "repo": "glittercowboy/taches-cc-resources"
+    },
+    "installLocation": "/home/dgon/.claude/plugins/marketplaces/taches-cc-resources",
+    "lastUpdated": "2026-01-10T00:50:01.219Z"
+  },
+  "context-engineering-kit": {
+    "source": {
+      "source": "github",
+      "repo": "NeoLabHQ/context-engineering-kit"
+    },
+    "installLocation": "/home/dgon/.claude/plugins/marketplaces/context-engineering-kit",
+    "lastUpdated": "2026-01-10T00:56:42.249Z"
+  },
+  "claude-canvas": {
+    "source": {
+      "source": "github",
+      "repo": "dvdsgl/claude-canvas"
+    },
+    "installLocation": "/home/dgon/.claude/plugins/marketplaces/claude-canvas",
+    "lastUpdated": "2026-01-10T17:55:51.806Z"
+  },
+  "thedotmack": {
+    "source": {
+      "source": "github",
+      "repo": "thedotmack/claude-mem"
+    },
+    "installLocation": "/home/dgon/.claude/plugins/marketplaces/thedotmack",
+    "lastUpdated": "2026-01-10T23:43:05.226Z"
+  },
+  "obsidian-skills": {
+    "source": {
+      "source": "github",
+      "repo": "kepano/obsidian-skills"
+    },
+    "installLocation": "/home/dgon/.claude/plugins/marketplaces/obsidian-skills",
+    "lastUpdated": "2026-02-26T13:28:30.721Z"
+  },
+  "anthropic-agent-skills": {
+    "source": {
+      "source": "github",
+      "repo": "anthropics/skills"
+    },
+    "installLocation": "/home/dgon/.claude/plugins/marketplaces/anthropic-agent-skills",
+    "lastUpdated": "2026-02-27T12:42:10.478Z"
+  },
+  "claude-code-workflows": {
+    "source": {
+      "source": "github",
+      "repo": "wshobson/agents"
+    },
+    "installLocation": "/home/dgon/.claude/plugins/marketplaces/claude-code-workflows",
+    "lastUpdated": "2026-03-26T01:39:00.059Z"
+  }
+}

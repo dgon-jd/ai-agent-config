@@ -1,0 +1,197 @@
+{
+  "version": 2,
+  "plugins": {
+    "code-simplifier@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/home/dgon/.claude/plugins/cache/claude-plugins-official/code-simplifier/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-01-09T22:51:30.389Z",
+        "lastUpdated": "2026-01-09T22:51:30.389Z"
+      }
+    ],
+    "taches-cc-resources@taches-cc-resources": [
+      {
+        "scope": "user",
+        "installPath": "/home/dgon/.claude/plugins/cache/taches-cc-resources/taches-cc-resources/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-01-10T00:55:32.049Z",
+        "lastUpdated": "2026-01-10T00:55:32.049Z"
+      }
+    ],
+    "frontend-design@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/home/dgon/.claude/plugins/cache/claude-plugins-official/frontend-design/unknown",
+        "version": "unknown",
+        "installedAt": "2026-01-10T01:03:50.731Z",
+        "lastUpdated": "2026-03-26T01:18:07.965Z"
+      }
+    ],
+    "github@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/home/dgon/.claude/plugins/cache/claude-plugins-official/github/unknown",
+        "version": "unknown",
+        "installedAt": "2026-01-10T01:03:50.778Z",
+        "lastUpdated": "2026-03-26T01:18:07.959Z"
+      }
+    ],
+    "feature-dev@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/home/dgon/.claude/plugins/cache/claude-plugins-official/feature-dev/unknown",
+        "version": "unknown",
+        "installedAt": "2026-01-10T01:03:50.799Z",
+        "lastUpdated": "2026-03-26T01:18:07.971Z"
+      }
+    ],
+    "code-review@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/home/dgon/.claude/plugins/cache/claude-plugins-official/code-review/unknown",
+        "version": "unknown",
+        "installedAt": "2026-01-10T01:03:50.813Z",
+        "lastUpdated": "2026-03-26T01:18:07.961Z"
+      }
+    ],
+    "commit-commands@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/home/dgon/.claude/plugins/cache/claude-plugins-official/commit-commands/unknown",
+        "version": "unknown",
+        "installedAt": "2026-01-10T01:03:50.829Z",
+        "lastUpdated": "2026-03-26T01:18:07.966Z"
+      }
+    ],
+    "playwright@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/home/dgon/.claude/plugins/cache/claude-plugins-official/playwright/unknown",
+        "version": "unknown",
+        "installedAt": "2026-01-10T01:03:50.845Z",
+        "lastUpdated": "2026-03-26T01:18:07.957Z"
+      }
+    ],
+    "canvas@claude-canvas": [
+      {
+        "scope": "user",
+        "installPath": "/home/dgon/.claude/plugins/cache/claude-canvas/canvas/0.1.0",
+        "version": "0.1.0",
+        "installedAt": "2026-01-10T17:55:56.035Z",
+        "lastUpdated": "2026-01-10T17:55:56.035Z"
+      }
+    ],
+    "supabase@claude-plugins-official": [
+      {
+        "scope": "project",
+        "projectPath": "/home/dgon/sources/yasno_bot",
+        "installPath": "/home/dgon/.claude/plugins/cache/claude-plugins-official/supabase/d53f6ca4cdb0",
+        "version": "d53f6ca4cdb0",
+        "installedAt": "2026-01-23T00:10:07.901Z",
+        "lastUpdated": "2026-03-19T14:09:25.144Z"
+      }
+    ],
+    "ralph-loop@claude-plugins-official": [
+      {
+        "scope": "project",
+        "projectPath": "/home/dgon/sources/yasno_bot",
+        "installPath": "/home/dgon/.claude/plugins/cache/claude-plugins-official/ralph-loop/d53f6ca4cdb0",
+        "version": "d53f6ca4cdb0",
+        "installedAt": "2026-01-29T15:35:29.213Z",
+        "lastUpdated": "2026-03-19T14:09:25.163Z",
+        "gitCommitSha": "e30768372b4150ca1bc0839d93283e8edc30d60d"
+      }
+    ],
+    "pyright-lsp@claude-plugins-official": [
+      {
+        "scope": "project",
+        "projectPath": "/home/dgon/sources/yasno_bot",
+        "installPath": "/home/dgon/.claude/plugins/cache/claude-plugins-official/pyright-lsp/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-01-29T15:35:51.121Z",
+        "lastUpdated": "2026-01-29T15:35:51.121Z",
+        "gitCommitSha": "e30768372b4150ca1bc0839d93283e8edc30d60d"
+      },
+      {
+        "scope": "user",
+        "installPath": "/home/dgon/.claude/plugins/cache/claude-plugins-official/pyright-lsp/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-03-24T14:01:59.484Z",
+        "lastUpdated": "2026-03-24T14:01:59.484Z",
+        "gitCommitSha": "79caa0d824acb760fd9c023acb39c6c7da5ee7fc"
+      }
+    ],
+    "claude-code-setup@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/home/dgon/.claude/plugins/cache/claude-plugins-official/claude-code-setup/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-01-29T15:36:54.711Z",
+        "lastUpdated": "2026-01-29T15:36:54.711Z",
+        "gitCommitSha": "e30768372b4150ca1bc0839d93283e8edc30d60d"
+      }
+    ],
+    "claude-md-management@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/home/dgon/.claude/plugins/cache/claude-plugins-official/claude-md-management/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-01-29T15:39:05.115Z",
+        "lastUpdated": "2026-01-29T15:39:05.115Z",
+        "gitCommitSha": "e30768372b4150ca1bc0839d93283e8edc30d60d"
+      }
+    ],
+    "sentry@claude-plugins-official": [
+      {
+        "scope": "project",
+        "projectPath": "/home/dgon/sources/yasno_bot",
+        "installPath": "/home/dgon/.claude/plugins/cache/claude-plugins-official/sentry/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-01-29T16:08:13.255Z",
+        "lastUpdated": "2026-01-29T16:08:13.255Z",
+        "gitCommitSha": "d237d4c314e9066689c401a3d61dd3bbfbb7a209"
+      }
+    ],
+    "explanatory-output-style@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/home/dgon/.claude/plugins/cache/claude-plugins-official/explanatory-output-style/unknown",
+        "version": "unknown",
+        "installedAt": "2026-02-08T17:29:17.650Z",
+        "lastUpdated": "2026-03-26T01:18:07.963Z",
+        "gitCommitSha": "2cd88e7947b7382e045666abee790c7f55f669f3"
+      }
+    ],
+    "obsidian@obsidian-skills": [
+      {
+        "scope": "user",
+        "installPath": "/home/dgon/.claude/plugins/cache/obsidian-skills/obsidian/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-02-26T13:28:43.782Z",
+        "lastUpdated": "2026-02-26T13:28:43.782Z",
+        "gitCommitSha": "be978124b80dc6b60586773e1d125d1cdf36d26a"
+      }
+    ],
+    "skill-creator@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/home/dgon/.claude/plugins/cache/claude-plugins-official/skill-creator/unknown",
+        "version": "unknown",
+        "installedAt": "2026-03-24T14:00:57.792Z",
+        "lastUpdated": "2026-03-26T01:18:07.977Z",
+        "gitCommitSha": "79caa0d824acb760fd9c023acb39c6c7da5ee7fc"
+      }
+    ],
+    "pr-review-toolkit@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/home/dgon/.claude/plugins/cache/claude-plugins-official/pr-review-toolkit/unknown",
+        "version": "unknown",
+        "installedAt": "2026-03-24T14:02:11.377Z",
+        "lastUpdated": "2026-03-26T01:18:07.973Z",
+        "gitCommitSha": "79caa0d824acb760fd9c023acb39c6c7da5ee7fc"
+      }
+    ]
+  }
+}

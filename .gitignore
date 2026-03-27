@@ -1,0 +1,66 @@
+# ========================================
+# Claude Code Config Sync - .gitignore
+# ========================================
+# Only track portable configuration files.
+# Everything else is machine-specific, sensitive, or re-downloadable.
+
+# --- Credentials (NEVER sync) ---
+.claude/.credentials.json
+.claude/.credentials.json.bak
+
+# --- Session & runtime data ---
+.claude/history.jsonl
+.claude/sessions/
+.claude/session-env/
+.claude/shell-snapshots/
+.claude/paste-cache/
+.claude/file-history/
+.claude/plans/
+
+# --- Caches & telemetry ---
+.claude/cache/
+.claude/stats-cache.json
+.claude/mcp-needs-auth-cache.json
+.claude/statsig/
+.claude/telemetry/
+.claude/debug/
+.claude/config/
+
+# --- Plugin binaries & cloned marketplace repos (re-downloadable) ---
+.claude/plugins/cache/
+.claude/plugins/marketplaces/
+.claude/plugins/repos/
+
+# --- Project-specific state (keyed by absolute path, not portable) ---
+.claude/projects/
+
+# --- Backups & temp files ---
+.claude/backups/
+.claude/*.bak
+.claude/.claude.bak
+
+# --- IDE integration ---
+.claude/ide/
+.claude/downloads/
+
+# --- GSD runtime state ---
+.claude/todos/
+.claude/tasks/
+
+# --- Nested git repos (managed as submodules) ---
+# _agents/ and PRPs-agentic-eng/ are git submodules - see .gitmodules
+
+# --- GSD runtime state (manifest is machine-specific) ---
+.claude/gsd-file-manifest.json
+
+# --- Plugin install count cache ---
+.claude/plugins/install-counts-cache.json
+
+# --- Backup files anywhere ---
+**/*.bak
+
+# --- Skills symlink (absolute path, not portable - bootstrap recreates it) ---
+.claude/skills
+
+# --- Node / misc ---
+node_modules/
