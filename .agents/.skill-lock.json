@@ -1,0 +1,130 @@
+{
+  "version": 3,
+  "skills": {
+    "writing-clearly-and-concisely": {
+      "source": "softaworks/agent-toolkit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/softaworks/agent-toolkit.git",
+      "skillPath": "skills/writing-clearly-and-concisely/SKILL.md",
+      "skillFolderHash": "c87de46a961320ae78647293f80e9a5a4c50c908",
+      "installedAt": "2026-01-30T12:33:22.489Z",
+      "updatedAt": "2026-01-30T12:33:22.489Z"
+    },
+    "find-skills": {
+      "source": "vercel-labs/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/skills.git",
+      "skillPath": "skills/find-skills/SKILL.md",
+      "skillFolderHash": "c2f31172b6f256272305a5e6e7228b258446899f",
+      "installedAt": "2026-01-30T12:33:29.743Z",
+      "updatedAt": "2026-01-30T12:33:29.743Z"
+    },
+    "bicep-diagrams": {
+      "source": "eraserlabs/eraser-io",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/eraserlabs/eraser-io.git",
+      "skillPath": "skills/bicep-diagrams/SKILL.md",
+      "skillFolderHash": "8e1ab5fcd3db08a018fb23ef66c0b6ccf920f49d",
+      "installedAt": "2026-03-17T13:13:08.493Z",
+      "updatedAt": "2026-03-17T13:13:08.493Z"
+    },
+    "azure-diagrams": {
+      "source": "eraserlabs/eraser-io",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/eraserlabs/eraser-io.git",
+      "skillPath": "skills/azure-diagrams/SKILL.md",
+      "skillFolderHash": "92aa722d5f5a0fe86c4b2f7da55613884f35a9af",
+      "installedAt": "2026-03-17T13:13:08.843Z",
+      "updatedAt": "2026-03-17T13:13:08.843Z"
+    },
+    "eraser-diagrams": {
+      "source": "eraserlabs/eraser-io",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/eraserlabs/eraser-io.git",
+      "skillPath": "skills/eraser-diagrams/SKILL.md",
+      "skillFolderHash": "a157f557a18627774250023cf7030ab7f6b2c5fe",
+      "installedAt": "2026-03-17T13:13:09.299Z",
+      "updatedAt": "2026-03-17T13:13:09.299Z"
+    },
+    "get-api-docs": {
+      "source": "andrewyng/context-hub",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/andrewyng/context-hub.git",
+      "skillPath": "cli/skills/get-api-docs/SKILL.md",
+      "skillFolderHash": "c94b40e7ad6cf7b0a4bc024f0a0c913829306c51",
+      "installedAt": "2026-03-24T13:59:10.348Z",
+      "updatedAt": "2026-03-24T13:59:10.348Z"
+    },
+    "grill-me": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "grill-me/SKILL.md",
+      "skillFolderHash": "58fccb407d628b1e89832b681410870826a947b9",
+      "installedAt": "2026-03-26T01:17:39.759Z",
+      "updatedAt": "2026-03-26T01:17:39.759Z"
+    },
+    "write-a-prd": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "write-a-prd/SKILL.md",
+      "skillFolderHash": "566c485ddc02f2338f1d5be6c0188db74e278678",
+      "installedAt": "2026-03-26T01:19:28.627Z",
+      "updatedAt": "2026-03-26T01:19:28.627Z"
+    },
+    "tdd": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "tdd/SKILL.md",
+      "skillFolderHash": "28d7822c112f22cf499099881856fdec07bc83a8",
+      "installedAt": "2026-03-26T01:27:48.716Z",
+      "updatedAt": "2026-03-26T01:27:48.716Z"
+    },
+    "improve-codebase-architecture": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "improve-codebase-architecture/SKILL.md",
+      "skillFolderHash": "78b2029cbf4a74fa798c97ea27bc02bdeb2e3237",
+      "installedAt": "2026-03-26T01:28:07.067Z",
+      "updatedAt": "2026-03-26T01:28:07.067Z"
+    },
+    "request-refactor-plan": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "request-refactor-plan/SKILL.md",
+      "skillFolderHash": "b0617c9cf69ac1e73a6b30f78c82ff81372079fd",
+      "installedAt": "2026-03-26T01:28:36.240Z",
+      "updatedAt": "2026-03-26T01:28:36.240Z"
+    },
+    "setup-pre-commit": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "setup-pre-commit/SKILL.md",
+      "skillFolderHash": "5e6e9301b4826bd820401ea4114a797adb169f47",
+      "installedAt": "2026-03-26T01:29:17.421Z",
+      "updatedAt": "2026-03-26T01:29:17.421Z"
+    }
+  },
+  "dismissed": {
+    "findSkillsPrompt": true
+  },
+  "lastSelectedAgents": [
+    "amp",
+    "antigravity",
+    "cline",
+    "codex",
+    "cursor",
+    "deepagents",
+    "gemini-cli",
+    "github-copilot",
+    "kimi-cli",
+    "opencode",
+    "warp",
+    "claude-code"
+  ]
+}
