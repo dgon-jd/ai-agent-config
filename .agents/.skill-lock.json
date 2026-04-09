@@ -108,6 +108,24 @@
       "skillFolderHash": "5e6e9301b4826bd820401ea4114a797adb169f47",
       "installedAt": "2026-03-26T01:29:17.421Z",
       "updatedAt": "2026-03-26T01:29:17.421Z"
+    },
+    "prd-to-plan": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "prd-to-plan/SKILL.md",
+      "skillFolderHash": "7317892c8d1978d485a166e8f7464fd4a45e9c08",
+      "installedAt": "2026-03-29T15:48:59.723Z",
+      "updatedAt": "2026-03-29T15:48:59.723Z"
+    },
+    "prd-to-issues": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "prd-to-issues/SKILL.md",
+      "skillFolderHash": "16cfef941383949d7f9d2dca5b939e19e9eabf9f",
+      "installedAt": "2026-03-29T15:51:11.841Z",
+      "updatedAt": "2026-03-29T15:51:11.841Z"
     }
   },
   "dismissed": {

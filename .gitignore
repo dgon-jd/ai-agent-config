@@ -59,8 +59,23 @@
 # --- Backup files anywhere ---
 **/*.bak
 
-# --- Skills symlink (absolute path, not portable - bootstrap recreates it) ---
-.claude/skills
-
 # --- Node / misc ---
 node_modules/
+
+# ========================================
+# Cross-tool config (rosy-brewing-bee)
+# ========================================
+
+# --- Pre-change snapshots from setup.sh ---
+.backups/
+
+# --- Machine-specific MCP server definitions (may contain API keys) ---
+.agents/mcp/servers.json
+
+# --- Plugin-flattened skills (machine-specific symlinks into plugin cache) ---
+.agents/skills/cc-*/
+
+# Note: .claude/skills was previously ignored because it pointed at an
+# absolute path (~/.agents/skills). As of the cross-tool overhaul it is
+# a relative symlink (.claude/skills -> ../.agents/skills), which IS
+# portable and is now committed to the repo.
