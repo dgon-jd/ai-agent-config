@@ -64,10 +64,22 @@ restore_or_fallback() {
 rollback_flattener() {
     echo "=== rollback --flattener ==="
 
-    # 1. Remove cc-* symlinks from the three bridge targets
+    # 1. Remove cc-* symlinks from every bridge target (current + legacy)
+    #
+    # Current (skills-only bridge):
+    #   - ~/.agents/skills/cc-*       (cross-vendor, all tools)
+    #   - ~/.codex/skills/cc-*        (defensive per-tool fallback)
+    #
+    # Legacy (agent bridge that broke OpenCode — removed 2026-04):
+    #   - ~/.config/opencode/agents/cc-*.md
+    #   - ~/.gemini/agents/cc-*.md
+    #
+    # Both are swept so this mode cleanly handles machines that ran a
+    # previous version of flatten.sh.
     local removed=0
     for pattern in \
         "$HOME/.agents/skills/cc-*" \
+        "$HOME/.codex/skills/cc-*" \
         "$HOME/.config/opencode/agents/cc-*.md" \
         "$HOME/.gemini/agents/cc-*.md"
     do
