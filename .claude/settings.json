@@ -4,7 +4,41 @@
   },
   "permissions": {
     "allow": [
-      "Bash(npx create-vite@latest:*)"
+      "Bash(npx create-vite@latest:*)",
+      "Bash(git -C /home/dgon/sources/talentscope2 log --oneline -5)",
+      "WebSearch",
+      "Bash(gh repo:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Read(//home/dgon/sources/claude-config/.claude/**)",
+      "Bash(find /home/dgon/sources/talentscope2 -name .* -type f)",
+      "WebFetch(domain:www.npmjs.com)",
+      "WebFetch(domain:registry.npmjs.org)",
+      "WebFetch(domain:clerk.com)",
+      "WebFetch(domain:orm.drizzle.team)",
+      "WebFetch(domain:ui.shadcn.com)",
+      "WebFetch(domain:turbo.build)",
+      "WebFetch(domain:turborepo.dev)",
+      "WebFetch(domain:docs.railway.com)",
+      "mcp__plugin_linear_linear__get_issue",
+      "mcp__brave-search__brave_web_search",
+      "mcp__perplexity-ask__perplexity_ask",
+      "mcp__Ref__ref_read_url",
+      "mcp__plugin_linear_linear__save_issue",
+      "mcp__Ref__ref_search_documentation",
+      "Bash(pnpm install:*)",
+      "Bash(npx tsc:*)",
+      "Bash(pnpm:*)",
+      "Bash(ls /home/dgon/sources/talentscope2/node_modules/.pnpm/mammoth*/node_modules/mammoth/)",
+      "Bash(git stash:*)",
+      "Bash(git status:*)",
+      "Bash(grep -r \"process\\\\.env\\\\.\" apps/web/src/app/api/projects/\\\\[id\\\\]/candidates/ packages/pipeline/src/scoring*.ts)",
+      "mcp__plugin_playwright_playwright__browser_navigate",
+      "mcp__plugin_playwright_playwright__browser_snapshot",
+      "Bash(find:*)",
+      "Bash(grep -n \"deductCredits\\\\|CANDIDATE_LIMITS\\\\|interview_generation\\\\|cv_scoring\\\\|translation\" /home/dgon/sources/talentscope2/apps/web/src/app/api/projects/[id]/generate/route.ts)",
+      "Bash(grep:*)"
     ],
     "deny": [
       "Bash(rm -rf *)",
@@ -14,7 +48,8 @@
       "Bash(dd *)",
       "Bash(git push --force *)",
       "Bash(git reset --hard *)"
-    ]
+    ],
+    "defaultMode": "default"
   },
   "hooks": {
     "Stop": [
@@ -66,7 +101,6 @@
   "enabledPlugins": {
     "code-simplifier@claude-plugins-official": true,
     "taches-cc-resources@taches-cc-resources": true,
-    "frontend-design@claude-plugins-official": true,
     "github@claude-plugins-official": false,
     "feature-dev@claude-plugins-official": true,
     "code-review@claude-plugins-official": true,
@@ -79,12 +113,21 @@
     "obsidian@obsidian-skills": true,
     "skill-creator@claude-plugins-official": true,
     "pyright-lsp@claude-plugins-official": true,
-    "pr-review-toolkit@claude-plugins-official": true
+    "pr-review-toolkit@claude-plugins-official": true,
+    "javascript-typescript@claude-code-workflows": true,
+    "backend-development@claude-code-workflows": true,
+    "llm-application-dev@claude-code-workflows": true,
+    "payment-processing@claude-code-workflows": true,
+    "database-design@claude-code-workflows": true,
+    "developer-essentials@claude-code-workflows": true,
+    "comprehensive-review@claude-code-workflows": true,
+    "observability-monitoring@claude-code-workflows": true,
+    "security-scanning@claude-code-workflows": true,
+    "ui-design@claude-code-workflows": true,
+    "error-debugging@claude-code-workflows": true,
+    "code-refactoring@claude-code-workflows": true,
+    "frontend-design@claude-plugins-official": true
   },
-  "effortLevel": "high",
-  "voiceEnabled": true,
-  "skipDangerousModePermissionPrompt": true,
-  "teammateMode": "tmux",
   "extraKnownMarketplaces": {
     "claude-code-workflows": {
       "source": {
@@ -92,5 +135,9 @@
         "repo": "wshobson/agents"
       }
     }
-  }
+  },
+  "effortLevel": "high",
+  "voiceEnabled": true,
+  "skipDangerousModePermissionPrompt": true,
+  "teammateMode": "tmux"
 }

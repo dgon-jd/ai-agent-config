@@ -19,15 +19,6 @@
         "lastUpdated": "2026-01-10T00:55:32.049Z"
       }
     ],
-    "frontend-design@claude-plugins-official": [
-      {
-        "scope": "user",
-        "installPath": "/home/dgon/.claude/plugins/cache/claude-plugins-official/frontend-design/unknown",
-        "version": "unknown",
-        "installedAt": "2026-01-10T01:03:50.731Z",
-        "lastUpdated": "2026-03-26T01:18:07.965Z"
-      }
-    ],
     "github@claude-plugins-official": [
       {
         "scope": "user",
@@ -86,20 +77,20 @@
       {
         "scope": "project",
         "projectPath": "/home/dgon/sources/yasno_bot",
-        "installPath": "/home/dgon/.claude/plugins/cache/claude-plugins-official/supabase/d53f6ca4cdb0",
-        "version": "d53f6ca4cdb0",
+        "installPath": "/home/dgon/.claude/plugins/cache/claude-plugins-official/supabase/unknown",
+        "version": "unknown",
         "installedAt": "2026-01-23T00:10:07.901Z",
-        "lastUpdated": "2026-03-19T14:09:25.144Z"
+        "lastUpdated": "2026-03-30T13:22:03.272Z"
       }
     ],
     "ralph-loop@claude-plugins-official": [
       {
         "scope": "project",
         "projectPath": "/home/dgon/sources/yasno_bot",
-        "installPath": "/home/dgon/.claude/plugins/cache/claude-plugins-official/ralph-loop/d53f6ca4cdb0",
-        "version": "d53f6ca4cdb0",
+        "installPath": "/home/dgon/.claude/plugins/cache/claude-plugins-official/ralph-loop/1.0.0",
+        "version": "1.0.0",
         "installedAt": "2026-01-29T15:35:29.213Z",
-        "lastUpdated": "2026-03-19T14:09:25.163Z",
+        "lastUpdated": "2026-03-30T13:22:03.299Z",
         "gitCommitSha": "e30768372b4150ca1bc0839d93283e8edc30d60d"
       }
     ],
@@ -156,10 +147,10 @@
     "explanatory-output-style@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/home/dgon/.claude/plugins/cache/claude-plugins-official/explanatory-output-style/unknown",
-        "version": "unknown",
+        "installPath": "/home/dgon/.claude/plugins/cache/claude-plugins-official/explanatory-output-style/1.0.0",
+        "version": "1.0.0",
         "installedAt": "2026-02-08T17:29:17.650Z",
-        "lastUpdated": "2026-03-26T01:18:07.963Z",
+        "lastUpdated": "2026-03-29T11:43:51.571Z",
         "gitCommitSha": "2cd88e7947b7382e045666abee790c7f55f669f3"
       }
     ],
@@ -191,6 +182,219 @@
         "installedAt": "2026-03-24T14:02:11.377Z",
         "lastUpdated": "2026-03-26T01:18:07.973Z",
         "gitCommitSha": "79caa0d824acb760fd9c023acb39c6c7da5ee7fc"
+      }
+    ],
+    "linear@claude-plugins-official": [
+      {
+        "scope": "project",
+        "projectPath": "/home/dgon/sources/talentscope2",
+        "installPath": "/home/dgon/.claude/plugins/cache/claude-plugins-official/linear/unknown",
+        "version": "unknown",
+        "installedAt": "2026-04-02T15:43:30.211Z",
+        "lastUpdated": "2026-04-02T15:43:30.211Z"
+      },
+      {
+        "scope": "project",
+        "installPath": "/home/dgon/.claude/plugins/cache/claude-plugins-official/linear/unknown",
+        "version": "unknown",
+        "installedAt": "2026-04-09T11:54:27.832Z",
+        "lastUpdated": "2026-04-09T11:54:27.832Z",
+        "projectPath": "/home/dgon/sources/yasno_bot"
+      }
+    ],
+    "javascript-typescript@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/home/dgon/.claude/plugins/cache/claude-code-workflows/javascript-typescript/1.2.2",
+        "version": "1.2.2",
+        "installedAt": "2026-04-02T23:41:57.947Z",
+        "lastUpdated": "2026-04-02T23:41:57.947Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "backend-development@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/home/dgon/.claude/plugins/cache/claude-code-workflows/backend-development/1.3.1",
+        "version": "1.3.1",
+        "installedAt": "2026-04-02T23:41:59.005Z",
+        "lastUpdated": "2026-04-02T23:41:59.005Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "llm-application-dev@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/home/dgon/.claude/plugins/cache/claude-code-workflows/llm-application-dev/2.0.5",
+        "version": "2.0.5",
+        "installedAt": "2026-04-02T23:42:00.093Z",
+        "lastUpdated": "2026-04-02T23:42:00.093Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "payment-processing@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/home/dgon/.claude/plugins/cache/claude-code-workflows/payment-processing/1.2.2",
+        "version": "1.2.2",
+        "installedAt": "2026-04-02T23:42:01.144Z",
+        "lastUpdated": "2026-04-02T23:42:01.144Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "database-design@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/home/dgon/.claude/plugins/cache/claude-code-workflows/database-design/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-04-02T23:42:02.229Z",
+        "lastUpdated": "2026-04-02T23:42:02.229Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "developer-essentials@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/home/dgon/.claude/plugins/cache/claude-code-workflows/developer-essentials/1.0.2",
+        "version": "1.0.2",
+        "installedAt": "2026-04-02T23:42:03.366Z",
+        "lastUpdated": "2026-04-02T23:42:03.366Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "comprehensive-review@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/home/dgon/.claude/plugins/cache/claude-code-workflows/comprehensive-review/1.3.0",
+        "version": "1.3.0",
+        "installedAt": "2026-04-02T23:42:08.182Z",
+        "lastUpdated": "2026-04-02T23:42:08.182Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "observability-monitoring@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/home/dgon/.claude/plugins/cache/claude-code-workflows/observability-monitoring/1.2.2",
+        "version": "1.2.2",
+        "installedAt": "2026-04-02T23:42:09.230Z",
+        "lastUpdated": "2026-04-02T23:42:09.230Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "security-scanning@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/home/dgon/.claude/plugins/cache/claude-code-workflows/security-scanning/1.3.1",
+        "version": "1.3.1",
+        "installedAt": "2026-04-02T23:42:10.260Z",
+        "lastUpdated": "2026-04-02T23:42:10.260Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "ui-design@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/home/dgon/.claude/plugins/cache/claude-code-workflows/ui-design/1.0.3",
+        "version": "1.0.3",
+        "installedAt": "2026-04-02T23:42:11.343Z",
+        "lastUpdated": "2026-04-02T23:42:11.343Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "error-debugging@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/home/dgon/.claude/plugins/cache/claude-code-workflows/error-debugging/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-04-02T23:42:12.316Z",
+        "lastUpdated": "2026-04-02T23:42:12.316Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "code-refactoring@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/home/dgon/.claude/plugins/cache/claude-code-workflows/code-refactoring/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-04-02T23:42:13.423Z",
+        "lastUpdated": "2026-04-02T23:42:13.423Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "neon@claude-plugins-official": [
+      {
+        "scope": "project",
+        "projectPath": "/home/dgon/sources/talentscope2",
+        "installPath": "/home/dgon/.claude/plugins/cache/claude-plugins-official/neon/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-04-02T23:47:16.445Z",
+        "lastUpdated": "2026-04-02T23:47:16.445Z",
+        "gitCommitSha": "54d7a9db2ddd476f84d5d1fd7bac323907858a8b"
+      }
+    ],
+    "frontend-design@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/home/dgon/.claude/plugins/cache/claude-plugins-official/frontend-design/unknown",
+        "version": "unknown",
+        "installedAt": "2026-04-03T18:14:48.545Z",
+        "lastUpdated": "2026-04-03T18:14:48.545Z"
+      }
+    ],
+    "code-documentation@claude-code-workflows": [
+      {
+        "scope": "project",
+        "projectPath": "/home/dgon/sources/srsai",
+        "installPath": "/home/dgon/.claude/plugins/cache/claude-code-workflows/code-documentation/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-04-06T14:51:42.155Z",
+        "lastUpdated": "2026-04-06T14:51:42.155Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "unit-testing@claude-code-workflows": [
+      {
+        "scope": "project",
+        "projectPath": "/home/dgon/sources/srsai",
+        "installPath": "/home/dgon/.claude/plugins/cache/claude-code-workflows/unit-testing/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-04-06T14:51:42.795Z",
+        "lastUpdated": "2026-04-06T14:51:42.795Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "python-development@claude-code-workflows": [
+      {
+        "scope": "project",
+        "projectPath": "/home/dgon/sources/srsai",
+        "installPath": "/home/dgon/.claude/plugins/cache/claude-code-workflows/python-development/1.2.2",
+        "version": "1.2.2",
+        "installedAt": "2026-04-06T14:51:43.468Z",
+        "lastUpdated": "2026-04-06T14:51:43.468Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "agent-orchestration@claude-code-workflows": [
+      {
+        "scope": "project",
+        "projectPath": "/home/dgon/sources/srsai",
+        "installPath": "/home/dgon/.claude/plugins/cache/claude-code-workflows/agent-orchestration/1.2.1",
+        "version": "1.2.1",
+        "installedAt": "2026-04-06T15:05:31.459Z",
+        "lastUpdated": "2026-04-06T15:05:31.459Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "context-management@claude-code-workflows": [
+      {
+        "scope": "project",
+        "projectPath": "/home/dgon/sources/srsai",
+        "installPath": "/home/dgon/.claude/plugins/cache/claude-code-workflows/context-management/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-04-06T15:05:43.567Z",
+        "lastUpdated": "2026-04-06T15:05:43.567Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
       }
     ]
   }
