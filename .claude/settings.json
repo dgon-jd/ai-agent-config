@@ -79,6 +79,10 @@
           {
             "type": "command",
             "command": "node \"/home/dgon/.claude/hooks/gsd-check-update.js\""
+          },
+          {
+            "type": "command",
+            "command": "bash -c 'exec \"$(dirname \"$(readlink -f ~/.claude)\")/.agents/plugins/flatten.sh\"'"
           }
         ]
       }

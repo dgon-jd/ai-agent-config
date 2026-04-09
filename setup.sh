@@ -216,6 +216,72 @@ if [ -d "$CLAUDE_DIR/commands" ]; then
 fi
 
 # ----------------------------------------------------------------------
+# Step 3d: MCP generator
+#
+# Canonical source: .agents/mcp/servers.json (gitignored — holds API keys).
+# Seed from ~/.claude.json on first run, then propagate to all 4 tool
+# configs (Claude / Gemini / OpenCode JSON + Codex TOML).
+# ----------------------------------------------------------------------
+echo ""
+echo "--- MCP server propagation ---"
+MCP_GEN="$AGENTS_DIR/mcp/generate.sh"
+MCP_JSON="$AGENTS_DIR/mcp/servers.json"
+if [ -x "$MCP_GEN" ]; then
+    if [ ! -f "$MCP_JSON" ]; then
+        if [ -f "$HOME/.claude.json" ] && jq -e '.mcpServers // empty' "$HOME/.claude.json" >/dev/null 2>&1; then
+            "$MCP_GEN" seed
+        else
+            echo "[skip] no ~/.claude.json with mcpServers — run '$MCP_GEN seed' after configuring MCP in Claude Code"
+        fi
+    fi
+    if [ -f "$MCP_JSON" ]; then
+        "$MCP_GEN"
+    fi
+else
+    echo "[skip] $MCP_GEN not executable"
+fi
+
+# ----------------------------------------------------------------------
+# Step 3e: Gemini experimental flag
+#
+# Agent discovery in Gemini CLI is gated by `experimental.enableAgents`.
+# Merge-set it to true without clobbering other experimental keys.
+# ----------------------------------------------------------------------
+echo ""
+echo "--- Gemini experimental flag ---"
+GEMINI_SETTINGS="$HOME/.gemini/settings.json"
+if [ -f "$GEMINI_SETTINGS" ]; then
+    tmp="$(mktemp "${GEMINI_SETTINGS}.XXXXXX")"
+    if jq '.experimental.enableAgents = true' "$GEMINI_SETTINGS" > "$tmp" && jq -e . "$tmp" >/dev/null; then
+        mv "$tmp" "$GEMINI_SETTINGS"
+        echo "[ok] ensured .experimental.enableAgents = true in $GEMINI_SETTINGS"
+    else
+        rm -f "$tmp"
+        echo "[!!] failed to patch $GEMINI_SETTINGS — original untouched"
+    fi
+else
+    echo "[skip] $GEMINI_SETTINGS doesn't exist yet (launch Gemini CLI once to create it)"
+fi
+
+# ----------------------------------------------------------------------
+# Step 3f: Plugin bridge (flatten.sh)
+#
+# Creates cc-<plugin>-<name> symlinks in ~/.agents/skills/ (all 4 tools),
+# ~/.config/opencode/agents/ (OpenCode only), ~/.gemini/agents/ (Gemini
+# only) pointing into ~/.claude/plugins/cache/... — bridges Claude Code
+# plugin content to the other three tools. The Claude Code SessionStart
+# hook re-runs this on every session to handle plugin updates.
+# ----------------------------------------------------------------------
+echo ""
+echo "--- Plugin bridge (flatten.sh) ---"
+FLATTEN="$AGENTS_DIR/plugins/flatten.sh"
+if [ -x "$FLATTEN" ]; then
+    "$FLATTEN"
+else
+    echo "[skip] $FLATTEN not executable"
+fi
+
+# ----------------------------------------------------------------------
 # Step 4: Install plugin marketplaces (Claude Code only)
 # ----------------------------------------------------------------------
 if command -v claude >/dev/null 2>&1; then
