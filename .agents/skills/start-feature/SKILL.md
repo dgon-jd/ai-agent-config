@@ -1,6 +1,6 @@
 ---
-name: start-feature
-description: Kick off a new feature — discover PM tool, fetch issue, create branch, research, plan, track. Use when the user says "start feature", "new feature", or provides an issue ID/feature name to begin work on.
+description: Kick off a new feature — discover PM tool, fetch issue, create branch, research, plan, track
+argument-hint: <issue-id or feature-name>
 ---
 
 # Start Feature

@@ -1,6 +1,5 @@
 ---
-name: finish-feature
-description: Complete a feature branch — tests, review, docs, commit, merge/PR, and PM-tool sync. Use when the user says "finish feature", "wrap up feature", "feature is done", or when a feature branch is ready to integrate.
+description: Complete a feature branch — tests, review, docs, commit, merge/PR, and PM-tool sync
 ---
 
 # Finish Feature
