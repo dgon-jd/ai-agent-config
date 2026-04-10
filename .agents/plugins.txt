@@ -1,0 +1,46 @@
+# Claude Code plugins — one plugin@marketplace per line.
+# setup.sh reads this file and runs `claude plugin install <name>` for each.
+# Add new plugins here, commit, and run setup.sh on other machines to sync.
+#
+# To add a plugin you just installed:
+#   1. claude plugin install <name>@<marketplace>
+#   2. echo "<name>@<marketplace>" >> ~/.claude/../sources/claude-config/.agents/plugins.txt
+#   3. git add .agents/plugins.txt && git commit -m "plugins: add <name>"
+agent-orchestration@claude-code-workflows
+backend-development@claude-code-workflows
+canvas@claude-canvas
+claude-code-setup@claude-plugins-official
+claude-md-management@claude-plugins-official
+code-documentation@claude-code-workflows
+code-refactoring@claude-code-workflows
+code-review@claude-plugins-official
+code-simplifier@claude-plugins-official
+commit-commands@claude-plugins-official
+comprehensive-review@claude-code-workflows
+context-management@claude-code-workflows
+database-design@claude-code-workflows
+developer-essentials@claude-code-workflows
+error-debugging@claude-code-workflows
+explanatory-output-style@claude-plugins-official
+feature-dev@claude-plugins-official
+frontend-design@claude-plugins-official
+github@claude-plugins-official
+javascript-typescript@claude-code-workflows
+linear@claude-plugins-official
+llm-application-dev@claude-code-workflows
+neon@claude-plugins-official
+observability-monitoring@claude-code-workflows
+obsidian@obsidian-skills
+payment-processing@claude-code-workflows
+playwright@claude-plugins-official
+pr-review-toolkit@claude-plugins-official
+pyright-lsp@claude-plugins-official
+python-development@claude-code-workflows
+ralph-loop@claude-plugins-official
+security-scanning@claude-code-workflows
+sentry@claude-plugins-official
+skill-creator@claude-plugins-official
+supabase@claude-plugins-official
+taches-cc-resources@taches-cc-resources
+ui-design@claude-code-workflows
+unit-testing@claude-code-workflows

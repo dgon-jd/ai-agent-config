@@ -1,6 +1,6 @@
 ---
-description: Capture a lesson learned to tasks/lessons.md — corrections, findings, or architectural decisions
-argument-hint: [description of the lesson to capture]
+name: lessons
+description: Capture a lesson learned to tasks/lessons.md — corrections, findings, or architectural decisions. Use when the user says "lessons", "capture a lesson", "remember this", or after a notable correction or architectural finding the user wants preserved across sessions.
 ---
 
 You are capturing a lesson learned for this project. Lessons persist across sessions and help avoid repeating mistakes.

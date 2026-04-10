@@ -1,0 +1,12 @@
+# Claude Code plugin marketplaces — one owner/repo per line.
+# setup.sh reads this file and runs `claude plugin marketplace add <repo>` for each.
+# Add new marketplaces here, commit, and run setup.sh on other machines to sync.
+anthropics/claude-plugins-official
+obra/superpowers-marketplace
+glittercowboy/taches-cc-resources
+NeoLabHQ/context-engineering-kit
+dvdsgl/claude-canvas
+thedotmack/claude-mem
+kepano/obsidian-skills
+anthropics/skills
+wshobson/agents

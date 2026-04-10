@@ -59,8 +59,18 @@
 # --- Backup files anywhere ---
 **/*.bak
 
-# --- Skills symlink (absolute path, not portable - bootstrap recreates it) ---
-.claude/skills
-
 # --- Node / misc ---
 node_modules/
+
+# ========================================
+# Cross-tool config
+# ========================================
+
+# Pre-change snapshots from setup.sh (machine-specific)
+.backups/
+
+# MCP server definitions (may contain API keys — re-seed per machine)
+.agents/mcp/servers.json
+
+# Plugin-flattened skill symlinks (machine-specific, into plugin cache)
+.agents/skills/cc-*

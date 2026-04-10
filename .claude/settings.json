@@ -38,7 +38,8 @@
       "mcp__plugin_playwright_playwright__browser_snapshot",
       "Bash(find:*)",
       "Bash(grep -n \"deductCredits\\\\|CANDIDATE_LIMITS\\\\|interview_generation\\\\|cv_scoring\\\\|translation\" /home/dgon/sources/talentscope2/apps/web/src/app/api/projects/[id]/generate/route.ts)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "mcp__pencil"
     ],
     "deny": [
       "Bash(rm -rf *)",
@@ -52,43 +53,12 @@
     "defaultMode": "default"
   },
   "hooks": {
-    "Stop": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/hooks/notify-done.sh"
-          }
-        ]
-      }
-    ],
-    "Notification": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "powershell.exe -c \"[System.Media.SystemSounds]::Question.Play()\" 2>/dev/null; echo -e '\\a'"
-          }
-        ]
-      }
-    ],
     "SessionStart": [
       {
         "hooks": [
           {
             "type": "command",
-            "command": "node \"/home/dgon/.claude/hooks/gsd-check-update.js\""
-          }
-        ]
-      }
-    ],
-    "PostToolUse": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "node \"/home/dgon/.claude/hooks/gsd-context-monitor.js\""
+            "command": "bash -c 'exec \"$(dirname \"$(readlink -f ~/.claude)\")/.agents/plugins/flatten.sh\"'"
           }
         ]
       }
