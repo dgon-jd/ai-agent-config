@@ -162,4 +162,16 @@ if [ "$CODEX_ENABLED" -eq 1 ]; then
     echo "[ok] flatten.sh: ${skills_added} plugin skills → ~/.codex/skills/cc-* (defensive fallback)"
 fi
 [ "$collisions" -gt 0 ] && echo "[warn] $collisions symlink collisions (see above)"
+
+# ----------------------------------------------------------------------
+# Also run sync-agents.sh to bridge plugin agents (with frontmatter
+# rewriting) to OpenCode and Gemini. This is a separate script because
+# agents need per-tool format transformation — unlike skills which use
+# the portable SKILL.md standard and can be symlinked as-is.
+# ----------------------------------------------------------------------
+SYNC_AGENTS="$(dirname "$0")/sync-agents.sh"
+if [ -x "$SYNC_AGENTS" ]; then
+    "$SYNC_AGENTS"
+fi
+
 exit 0

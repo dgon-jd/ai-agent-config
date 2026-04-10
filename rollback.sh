@@ -94,6 +94,21 @@ rollback_flattener() {
     done
     ok "removed $removed cc-* symlinks"
 
+    # 1b. Remove sync-agents.sh output files (*--*.md naming convention)
+    local agents_removed=0
+    for dir in "$HOME/.config/opencode/agents" "$HOME/.gemini/agents"; do
+        if [ -d "$dir" ]; then
+            shopt -s nullglob
+            for entry in "$dir"/*--*.md; do
+                [ -f "$entry" ] || continue
+                rm -f "$entry"
+                agents_removed=$((agents_removed + 1))
+            done
+            shopt -u nullglob
+        fi
+    done
+    ok "removed $agents_removed synced agent files (*--*.md)"
+
     # 2. Strip the flatten.sh SessionStart hook from claude settings
     if [ -f "$CLAUDE_DIR/settings.json" ]; then
         local tmp
