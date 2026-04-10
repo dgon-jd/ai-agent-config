@@ -1,26 +1,23 @@
-# AI Tool Config
+# AI Agent Config
 
-One canonical source of truth for skills and MCP servers, shared across **Claude Code**, **Codex CLI**, **OpenCode**, and **Gemini CLI**. Everything you add in one place shows up in all four tools.
+Portable configuration for AI coding agents, shared across **Claude Code**, **Codex CLI**, **OpenCode**, and **Gemini CLI**. One repo, one `setup.sh`, all four tools get the same skills, MCP servers, and plugin content.
 
-## Mental model
+## How it works
 
 ```
-~/.agents/skills/          ← canonical (symlink into this repo)
-    │
-    ├── read natively by Codex, OpenCode, Gemini
-    │   (vendor-neutral .agents/skills/ convention, agentskills.io)
-    │
-    └── Claude Code reads it via ~/.claude/skills symlink
+~/.agents/skills/          ← canonical skills (git-tracked, symlinked)
+    ├── read natively by Codex, OpenCode, Gemini (agentskills.io convention)
+    └── Claude Code reads via ~/.claude/skills symlink
 
-.agents/mcp/servers.json   ← canonical MCP definition
-    │
+.agents/mcp/servers.json   ← canonical MCP definitions (gitignored, holds API keys)
     └── generate.sh writes native configs for all 4 tools
-        (.claude.json / .gemini/settings.json / opencode.json / .codex/config.toml)
+
+.agents/plugins/flatten.sh ← SessionStart hook bridges plugin content cross-tool
+    ├── skills: symlinked as-is (SKILL.md is a cross-vendor standard)
+    └── agents: copied with per-tool frontmatter rewrite (sync-agents.sh)
 ```
 
-All four tools ship with their own agent/command/prompt directories. Only skills and MCP are shared here — everything else stays per-tool.
-
-## New-machine setup
+## Quick start
 
 ```bash
 git clone --recursive git@github.com:<you>/claude-config.git ~/sources/claude-config
@@ -28,74 +25,133 @@ cd ~/sources/claude-config
 ./setup.sh
 ```
 
-`setup.sh` is idempotent. Re-run it any time you `git pull` to refresh symlinks, regenerate MCP configs, and re-run the plugin bridge.
+`setup.sh` is idempotent — re-run after `git pull` to sync everything.
 
-Then authenticate each tool you use (`claude`, `codex auth`, `opencode auth`, `gemini auth`).
+## What's shared
 
-## Day-to-day sync
+| Content | Shared? | Mechanism |
+|---|---|---|
+| **Skills** (39 SKILL.md) | ✅ all 4 tools | `~/.agents/skills/` — vendor-neutral discovery |
+| **MCP servers** (5) | ✅ all 4 tools | `generate.sh` → JSON×3 + TOML |
+| **Plugin skills** (96) | ✅ all 4 tools | `flatten.sh` symlinks `cc-*` dirs |
+| **Plugin agents** (60) | ✅ Claude + OpenCode + Gemini | `sync-agents.sh` copies with per-tool format rewrite |
+| **Plugins** (38) | ✅ Claude Code | `plugins.txt` manifest → `setup.sh` installs |
+| **Marketplaces** (9) | ✅ Claude Code | `marketplaces.txt` manifest → `setup.sh` adds |
+| **Commands** | ✅ all 4 tools | Collapsed into skills (SKILL.md subsumes commands) |
+
+## Day-to-day
+
+### Add a skill
 
 ```bash
-./sync.sh pull     # pull latest
-./sync.sh status   # what's changed locally
-./sync.sh push     # push local changes
+npx skills add <repo>#<skill>
+cd ~/sources/claude-config
+git add .agents/skills/<name> .agents/.skill-lock.json
+git commit -m "skills: add <name>" && git push
 ```
 
-New skills installed via `npx skills add <repo>` land directly in `$REPO/.agents/skills/` (the symlink chain points there). Commit + push to sync across machines.
+### Add an MCP server
 
-## What's shared vs per-tool
+```bash
+$EDITOR .agents/mcp/servers.json     # add entry under .mcpServers
+.agents/mcp/generate.sh              # propagate to all 4 tools
+```
 
-| Content | Shared across tools? | Where |
-|---|---|---|
-| **Skills** (SKILL.md) | ✅ all 4 tools | `.agents/skills/` — native cross-vendor discovery |
-| **MCP servers** | ✅ all 4 tools | `.agents/mcp/servers.json` → generated per tool |
-| **Plugin content** (Claude) | ✅ partial — see below | bridged via `.agents/plugins/flatten.sh` |
-| Agents (roster) | ❌ per-tool | each tool's own `agents/` dir |
-| Commands / prompts | ❌ per-tool | each tool's own dir (collapse into skills when possible) |
+### Add a Claude Code plugin
 
-**Claude Code plugins** install into `~/.claude/plugins/cache/…`. A SessionStart hook runs `.agents/plugins/flatten.sh` to symlink plugin skills (and agents, for OpenCode + Gemini only) under `cc-<plugin>-<name>` so the other tools can see them too. Codex doesn't have an agent-roster concept, so it gets skills but not agents.
+```bash
+claude plugin install <name>@<marketplace>
+echo "<name>@<marketplace>" >> .agents/plugins.txt
+git add .agents/plugins.txt && git commit -m "plugins: add <name>" && git push
+# Next session: SessionStart hook auto-bridges skills + agents to other tools
+```
+
+### Sync another machine
+
+```bash
+cd ~/sources/claude-config && git pull && ./setup.sh
+```
 
 ## Repo layout
 
 ```
 .
 ├── .agents/
-│   ├── skills/          ← canonical (git-tracked; cc-* symlinks gitignored)
+│   ├── skills/              ← git-tracked skills (+ cc-* symlinks, gitignored)
 │   ├── mcp/
-│   │   ├── generate.sh  ← servers.json → 4 tool configs
-│   │   └── servers.json ← gitignored (contains API keys)
+│   │   ├── generate.sh      ← MCP → 4 tool configs (JSON + TOML)
+│   │   └── servers.json     ← gitignored (API keys)
 │   ├── plugins/
-│   │   └── flatten.sh   ← bridges plugin content cross-tool
-│   └── .skill-lock.json ← vercel-labs/skills manifest
-├── .claude/             ← Claude Code config (symlinked to ~/.claude)
-│   ├── settings.json    ← SessionStart hook runs flatten.sh
-│   ├── CLAUDE.md
-│   ├── hooks/, plugins/, teams/, …
-├── .backups/            ← pre-change snapshots from setup.sh (gitignored)
-├── setup.sh             ← idempotent bootstrap
-├── rollback.sh          ← tiered undo (--mcp, --flattener, --skills, --commands, --all)
-├── sync.sh              ← git push/pull helper
+│   │   ├── flatten.sh       ← SessionStart hook: skills bridge + calls sync-agents
+│   │   └── sync-agents.sh   ← agent format rewriter (OpenCode + Gemini)
+│   ├── plugins.txt          ← declarative plugin manifest
+│   ├── marketplaces.txt     ← declarative marketplace manifest
+│   └── .skill-lock.json     ← npx skills lock file
+├── .claude/                 ← Claude Code config (symlinked to ~/.claude)
+│   ├── settings.json        ← hooks, permissions, enabled plugins
+│   ├── CLAUDE.md            ← global instructions
+│   ├── hooks/               ← notification scripts
+│   ├── plugins/             ← plugin cache (gitignored), manifests (tracked)
+│   └── skills → ../.agents/skills
+├── .backups/                ← pre-change snapshots (gitignored)
+├── setup.sh                 ← idempotent bootstrap
+├── rollback.sh              ← tiered undo (--mcp, --flattener, --skills, --all)
+├── sync.sh                  ← git push/pull helper
 ├── docs/
-│   ├── forward.md       ← how setup.sh works + day-to-day recipes
-│   └── rollback.md      ← how to undo everything, mode by mode
-└── README.md            ← this file
+│   ├── forward.md           ← setup walk-through, recipes, troubleshooting
+│   └── rollback.md          ← undo modes, independence verification, FAQ
+└── README.md
 ```
 
-## Forward and backward operations
+## MCP generator
 
-- **Forward operations** (setup, add a skill, add an MCP server, install a plugin and bridge it, sync across machines) → see [`docs/forward.md`](docs/forward.md)
-- **Rollback** (undo the cross-tool changes, restore per-tool independence) → see [`docs/rollback.md`](docs/rollback.md)
+`generate.sh` reads one canonical `servers.json` and writes each tool's native format:
 
-Both documents describe the same system from opposite directions. Keep them in sync when you change `setup.sh` or `rollback.sh`.
+| Tool | Target | Format |
+|---|---|---|
+| Claude Code | `~/.claude.json` | `.mcpServers` (JSON) |
+| Gemini CLI | `~/.gemini/settings.json` | `.mcpServers` (JSON) |
+| OpenCode | `~/.config/opencode/opencode.json` | `.mcp` (JSON, reshaped) |
+| Codex CLI | `~/.codex/config.toml` | `[mcp_servers.*]` (TOML) |
 
-## What's NOT tracked (machine-specific)
+Handles both stdio (`command` + `args`) and HTTP (`url`) transports. Atomic writes with round-trip validation. Non-MCP keys preserved in every target.
 
-- `.agents/mcp/servers.json` — holds API keys, re-seed per machine from `~/.claude.json`
-- `.agents/skills/cc-*/` — plugin-flattened symlinks, re-generated per machine
-- `.backups/` — pre-change snapshots, machine-specific
-- `.credentials.json`, session state, history, caches, telemetry, plugin binaries, project-specific state
+Seed from existing Claude config: `.agents/mcp/generate.sh seed`
 
-## Acknowledgements
+## Plugin bridge
 
-The `.agents/skills/` directory is a vendor-neutral convention championed by [agentskills.io](https://agentskills.io). Codex, OpenCode, and Gemini CLI all document explicit support for it. Claude Code reaches the same tree through a symlink.
+A Claude Code **SessionStart hook** runs `flatten.sh` on every session:
 
-Skills are managed with [vercel-labs/skills](https://github.com/vercel-labs/skills) (`npx skills add/update/remove`).
+1. **Skills**: directory-level symlinks from `~/.agents/skills/cc-<plugin>-<skill>` (+ `~/.codex/skills/cc-*` fallback) into the plugin cache. All 4 tools see them via the `.agents/skills/` convention.
+
+2. **Agents**: `sync-agents.sh` copies plugin agent files with per-tool frontmatter rewrite — OpenCode gets `tools: {read: true, …}` (record), Gemini gets `tools: [read_file, …]` (array). Uses `<plugin>--<agent>.md` naming.
+
+Self-healing: plugin updates change cache paths (version dirs). The next session re-creates all symlinks/copies and sweeps stale entries.
+
+## Rollback
+
+```bash
+./rollback.sh --flattener   # remove plugin bridge symlinks + agent copies
+./rollback.sh --mcp         # restore tool configs from .backups/
+./rollback.sh --skills      # un-flip skill symlinks to real dirs
+./rollback.sh --all         # everything above in safe order
+```
+
+Each mode restores from timestamped snapshots in `.backups/`. See [docs/rollback.md](docs/rollback.md) for per-mode walk-through and independence verification.
+
+## What's NOT tracked
+
+| Item | Why | How to restore |
+|---|---|---|
+| `servers.json` | API keys | `generate.sh seed` from `~/.claude.json` |
+| `.backups/` | Machine-specific snapshots | Recreated by `setup.sh` |
+| `cc-*` skill symlinks | Machine-specific paths | Recreated by `flatten.sh` |
+| `*--*.md` agent copies | Machine-specific | Recreated by `sync-agents.sh` |
+| Plugin cache | Re-downloadable | `setup.sh` reinstalls from `plugins.txt` |
+| Credentials | Per-machine auth | `claude auth`, tool-specific login |
+| Sessions, history, telemetry | Ephemeral | N/A |
+
+## Credits
+
+- [agentskills.io](https://agentskills.io) — cross-vendor `.agents/skills/` convention
+- [vercel-labs/skills](https://github.com/vercel-labs/skills) — `npx skills` CLI for skill management
