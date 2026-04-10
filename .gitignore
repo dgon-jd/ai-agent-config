@@ -63,19 +63,14 @@
 node_modules/
 
 # ========================================
-# Cross-tool config (rosy-brewing-bee)
+# Cross-tool config
 # ========================================
 
-# --- Pre-change snapshots from setup.sh ---
+# Pre-change snapshots from setup.sh (machine-specific)
 .backups/
 
-# --- Machine-specific MCP server definitions (may contain API keys) ---
+# MCP server definitions (may contain API keys — re-seed per machine)
 .agents/mcp/servers.json
 
-# --- Plugin-flattened skills (machine-specific symlinks into plugin cache) ---
-.agents/skills/cc-*/
-
-# Note: .claude/skills was previously ignored because it pointed at an
-# absolute path (~/.agents/skills). As of the cross-tool overhaul it is
-# a relative symlink (.claude/skills -> ../.agents/skills), which IS
-# portable and is now committed to the repo.
+# Plugin-flattened skill symlinks (machine-specific, into plugin cache)
+.agents/skills/cc-*
