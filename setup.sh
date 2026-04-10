@@ -283,60 +283,51 @@ fi
 
 # ----------------------------------------------------------------------
 # Step 4: Install plugin marketplaces (Claude Code only)
+#
+# Reads from .agents/marketplaces.txt (one owner/repo per line).
+# To add a new marketplace: append a line, commit, run setup.sh.
 # ----------------------------------------------------------------------
+MARKETPLACES_FILE="$AGENTS_DIR/marketplaces.txt"
+PLUGINS_FILE="$AGENTS_DIR/plugins.txt"
+
 if command -v claude >/dev/null 2>&1; then
     echo ""
     echo "--- Installing plugin marketplaces ---"
 
-    MARKETPLACES=(
-        "anthropics/claude-plugins-official"
-        "obra/superpowers-marketplace"
-        "glittercowboy/taches-cc-resources"
-        "NeoLabHQ/context-engineering-kit"
-        "dvdsgl/claude-canvas"
-        "thedotmack/claude-mem"
-        "kepano/obsidian-skills"
-        "anthropics/skills"
-        "wshobson/agents"
-    )
-
-    for repo in "${MARKETPLACES[@]}"; do
-        echo "  Adding marketplace: $repo"
-        claude plugin marketplace add "$repo" 2>/dev/null || echo "  [skip] $repo (may already exist)"
-    done
-    echo "[ok] Marketplaces configured"
+    if [ -f "$MARKETPLACES_FILE" ]; then
+        while IFS= read -r repo || [ -n "$repo" ]; do
+            # Skip comments and blank lines
+            [[ "$repo" =~ ^[[:space:]]*# ]] && continue
+            [[ -z "${repo// /}" ]] && continue
+            echo "  Adding marketplace: $repo"
+            claude plugin marketplace add "$repo" 2>/dev/null || echo "  [skip] $repo (may already exist)"
+        done < "$MARKETPLACES_FILE"
+        echo "[ok] Marketplaces configured (from $MARKETPLACES_FILE)"
+    else
+        echo "[warn] $MARKETPLACES_FILE not found — skipping marketplace install"
+    fi
 
     # ------------------------------------------------------------------
     # Step 5: Install user-scope plugins
+    #
+    # Reads from .agents/plugins.txt (one plugin@marketplace per line).
+    # To add a new plugin: install it, append the line, commit.
     # ------------------------------------------------------------------
     echo ""
     echo "--- Installing user-scope plugins ---"
 
-    USER_PLUGINS=(
-        "code-simplifier@claude-plugins-official"
-        "taches-cc-resources@taches-cc-resources"
-        "frontend-design@claude-plugins-official"
-        "github@claude-plugins-official"
-        "feature-dev@claude-plugins-official"
-        "code-review@claude-plugins-official"
-        "commit-commands@claude-plugins-official"
-        "playwright@claude-plugins-official"
-        "canvas@claude-canvas"
-        "claude-code-setup@claude-plugins-official"
-        "claude-md-management@claude-plugins-official"
-        "explanatory-output-style@claude-plugins-official"
-        "obsidian@obsidian-skills"
-        "skill-creator@claude-plugins-official"
-        "pyright-lsp@claude-plugins-official"
-        "pr-review-toolkit@claude-plugins-official"
-    )
-
-    for plugin in "${USER_PLUGINS[@]}"; do
-        name="${plugin%%@*}"
-        echo "  Installing: $name"
-        claude plugin install "$name" 2>/dev/null || echo "  [skip] $name (may already exist)"
-    done
-    echo "[ok] Plugins installed"
+    if [ -f "$PLUGINS_FILE" ]; then
+        while IFS= read -r plugin || [ -n "$plugin" ]; do
+            [[ "$plugin" =~ ^[[:space:]]*# ]] && continue
+            [[ -z "${plugin// /}" ]] && continue
+            name="${plugin%%@*}"
+            echo "  Installing: $name"
+            claude plugin install "$name" 2>/dev/null || echo "  [skip] $name (may already exist)"
+        done < "$PLUGINS_FILE"
+        echo "[ok] Plugins installed (from $PLUGINS_FILE)"
+    else
+        echo "[warn] $PLUGINS_FILE not found — skipping plugin install"
+    fi
 else
     echo ""
     echo "[skip] claude CLI not installed — skipping marketplace & plugin install"
